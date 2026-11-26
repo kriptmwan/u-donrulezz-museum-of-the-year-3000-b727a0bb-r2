@@ -3,8 +3,13 @@
 // The label: a museum in the year 3000 misreading a phone charger.
 import { mkdirSync, writeFileSync } from "node:fs";
 
-const LINE =
-  "Phone Charger, c. 2024: a white umbilical cord through which humans fed their pocket oracles, nightly, in the dark.";
+function label(): string {
+  const object = "Phone Charger, c. 2024";
+  const reading =
+    "a white umbilical cord through which humans fed their pocket oracles, nightly, in the dark.";
+  return `${object}: ${reading}`;
+}
 
-mkdirSync("/output", { recursive: true });
-writeFileSync("/output/entry.txt", LINE, "utf8");
+const outDir = "/output";
+mkdirSync(outDir, { recursive: true });
+writeFileSync(`${outDir}/entry.txt`, label(), "utf8");
